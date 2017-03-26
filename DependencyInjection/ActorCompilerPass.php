@@ -1,8 +1,8 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\DependencyInjection;
+namespace Bamiz\UseCaseExecutorBundle\DependencyInjection;
 
-use Bamiz\UseCaseBundle\Actor\ActorRecognizerInterface;
+use Bamiz\UseCaseExecutor\Actor\ActorRecognizerInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;

@@ -193,7 +193,7 @@ to the Use Case name.
 ```php
 <?php
 
-use Bamiz\UseCaseBundle\Controller\MagicController;
+use Bamiz\UseCaseExecutorBundle\Controller\MagicController;
 use Symfony\Component\HttpFoundation\Request;
 
 class MyController extends MagicController
@@ -234,7 +234,7 @@ to the Use Cases directly in your `routing.yml` files.
 my_use_case:
     path: /my_use_case
     defaults:
-        _controller: BamizUseCaseBundle:magic:useCase
+        _controller: BamizUseCaseExecutorBundle:magic:useCase
         _use_case: my_use_case
         _input: http
         _response: { twig: { template: my_use_case.html.twig } }

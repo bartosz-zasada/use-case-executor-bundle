@@ -1,11 +1,12 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\DependencyInjection;
+namespace Bamiz\UseCaseExecutorBundle\DependencyInjection;
 
-use Bamiz\UseCaseBundle\Annotation\ProcessorAnnotation;
-use Bamiz\UseCaseBundle\Annotation\UseCase as UseCaseAnnotation;
-use Bamiz\UseCaseBundle\Container\ReferenceAcceptingContainerInterface;
-use Bamiz\UseCaseBundle\UseCase\RequestResolver;
+use Bamiz\UseCaseExecutor\UseCase\RequestClassNotFoundException;
+use Bamiz\UseCaseExecutorBundle\Annotation\ProcessorAnnotation;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase as UseCaseAnnotation;
+use Bamiz\UseCaseExecutor\Container\ReferenceAcceptingContainerInterface;
+use Bamiz\UseCaseExecutor\UseCase\RequestResolver;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -190,7 +191,7 @@ class UseCaseCompilerPass implements CompilerPassInterface
      * @param Definition        $resolverDefinition
      * @param Definition        $containerDefinition
      *
-     * @throws \Bamiz\UseCaseBundle\UseCase\RequestClassNotFoundException
+     * @throws RequestClassNotFoundException
      */
     private function registerUseCase(
         $serviceId,

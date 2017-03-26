@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\DependencyInjection;
+namespace spec\Bamiz\UseCaseExecutorBundle\DependencyInjection;
 
-use Bamiz\UseCaseBundle\Actor\ActorInterface;
-use Bamiz\UseCaseBundle\Actor\ActorRecognizerInterface;
-use Bamiz\UseCaseBundle\Actor\OmnipotentActor;
-use Bamiz\UseCaseBundle\DependencyInjection\ActorCompilerPass;
+use Bamiz\UseCaseExecutor\Actor\ActorInterface;
+use Bamiz\UseCaseExecutor\Actor\ActorRecognizerInterface;
+use Bamiz\UseCaseExecutor\Actor\OmnipotentActor;
+use Bamiz\UseCaseExecutorBundle\DependencyInjection\ActorCompilerPass;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

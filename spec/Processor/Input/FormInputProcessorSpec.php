@@ -1,8 +1,9 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Processor\Input;
+namespace spec\Bamiz\UseCaseExecutorBundle\Processor\Input;
 
-use Bamiz\UseCaseBundle\Processor\Input\InputProcessorInterface;
+use Bamiz\UseCaseExecutor\Processor\Input\InputProcessorInterface;
+use Bamiz\UseCaseExecutorBundle\Processor\Input\FormInputProcessor;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -10,7 +11,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @mixin \Bamiz\UseCaseBundle\Processor\Input\FormInputProcessor
+ * @mixin \Bamiz\UseCaseExecutorBundle\Processor\Input\FormInputProcessor
  */
 class FormInputProcessorSpec extends ObjectBehavior
 {
@@ -20,9 +21,9 @@ class FormInputProcessorSpec extends ObjectBehavior
         $formFactory->create(Argument::cetera())->willReturn($form);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Processor\Input\FormInputProcessor');
+        $this->shouldHaveType(FormInputProcessor::class);
     }
 
     public function it_is_an_input_processor()

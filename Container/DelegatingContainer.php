@@ -1,7 +1,9 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\Container;
+namespace Bamiz\UseCaseExecutorBundle\Container;
 
+use Bamiz\UseCaseExecutor\Container\ItemNotFoundException;
+use Bamiz\UseCaseExecutor\Container\ReferenceAcceptingContainerInterface;
 use Symfony\Component\DependencyInjection as DI;
 
 /**

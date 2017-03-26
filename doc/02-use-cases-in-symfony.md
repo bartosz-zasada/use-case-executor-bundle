@@ -58,7 +58,7 @@ To implement an Input Processor, create a class that implements `InputProcessorI
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Processor\Input\InputProcessorInterface;
+use Bamiz\UseCaseExecutorBundle\Processor\Input\InputProcessorInterface;
 
 class MyInputProcessor implements InputProcessorInterface
 {
@@ -87,7 +87,7 @@ the Use Case Request.
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Processor\Input\InputProcessorInterface;
+use Bamiz\UseCaseExecutorBundle\Processor\Input\InputProcessorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class MyInputProcessor implements InputProcessorInterface
@@ -130,8 +130,8 @@ In order to make sure that the Input Processor works, let's simply `var_dump` th
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Annotation\UseCase;
-use Bamiz\UseCaseBundle\Annotation\InputProcessor;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase;
+use Bamiz\UseCaseExecutorBundle\Annotation\InputProcessor;
 
 /**
  * @UseCase()
@@ -190,7 +190,7 @@ To implement a Response Processor, create a class that extends `ResponseProcesso
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Processor\Response\ResponseProcessorInterface;
+use Bamiz\UseCaseExecutorBundle\Processor\Response\ResponseProcessorInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class VarDumpingResponseProcessor implements ResponseProcessorInterface
@@ -223,7 +223,7 @@ Use Case. The var_dumped objects will then be returned in the Content field of a
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Processor\Response\ResponseProcessorInterface;
+use Bamiz\UseCaseExecutorBundle\Processor\Response\ResponseProcessorInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class VarDumpingResponseProcessor implements ResponseProcessorInterface
@@ -282,9 +282,9 @@ It should throw an exception whenever the string `missing_category` is passed as
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Annotation\UseCase;
-use Bamiz\UseCaseBundle\Annotation\InputProcessor;
-use Bamiz\UseCaseBundle\Annotation\ResponseProcessor;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase;
+use Bamiz\UseCaseExecutorBundle\Annotation\InputProcessor;
+use Bamiz\UseCaseExecutorBundle\Annotation\ResponseProcessor;
 
 /**
  * @UseCase()

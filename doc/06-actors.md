@@ -17,10 +17,10 @@ class Customer
 }
 ```
 
-To make your Actor class work with the Use Case Bundle, it must implement `\Bamiz\UseCaseBundle\Actor\ActorInterface`.
+To make your Actor class work with the Use Case Bundle, it must implement `\Bamiz\UseCaseExecutorBundle\Actor\ActorInterface`.
 
 ```php
-use Bamiz\UseCaseBundle\Actor\ActorInterface;
+use Bamiz\UseCaseExecutorBundle\Actor\ActorInterface;
 
 class Customer implements ActorInterface
 {
@@ -47,11 +47,11 @@ is entirely up to you.
 
 In order to make use of Actor classes, you must implement at least one service that will be used by the Use Case 
 Executor to recognize which Actor is currently using the system. This service must implement 
-`\Bamiz\UseCaseBundle\Actor\ActorRecognizerInterface` and be tagged as `actor_recognizer` in the container 
+`\Bamiz\UseCaseExecutorBundle\Actor\ActorRecognizerInterface` and be tagged as `actor_recognizer` in the container 
 configuration:
 
 ```php
-use Bamiz\UseCaseBundle\Actor\ActorRecognizerInterface;
+use Bamiz\UseCaseExecutorBundle\Actor\ActorRecognizerInterface;
 
 class CustomerRecognizer implements ActorRecognizerInterface
 {

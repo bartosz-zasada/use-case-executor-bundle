@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Annotation;
+namespace spec\Bamiz\UseCaseExecutorBundle\Annotation;
 
 use PhpSpec\ObjectBehavior;
-use Bamiz\UseCaseBundle\Annotation\UseCase;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase;
 
 class UseCaseSpec extends ObjectBehavior
 {

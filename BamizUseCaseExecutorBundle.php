@@ -1,15 +1,15 @@
 <?php
 
-namespace Bamiz\UseCaseBundle;
+namespace Bamiz\UseCaseExecutorBundle;
 
-use Bamiz\UseCaseBundle\DependencyInjection\ActorCompilerPass;
+use Bamiz\UseCaseExecutorBundle\DependencyInjection\ActorCompilerPass;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Bamiz\UseCaseBundle\DependencyInjection\UseCaseCompilerPass;
+use Bamiz\UseCaseExecutorBundle\DependencyInjection\UseCaseCompilerPass;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class BamizUseCaseBundle extends Bundle
+class BamizUseCaseExecutorBundle extends Bundle
 {
     public function boot()
     {

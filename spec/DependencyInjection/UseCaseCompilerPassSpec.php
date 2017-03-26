@@ -1,25 +1,22 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\DependencyInjection;
+namespace spec\Bamiz\UseCaseExecutorBundle\DependencyInjection;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Bamiz\UseCaseBundle\Annotation\UseCase as UseCaseAnnotation;
-use Bamiz\UseCaseBundle\Annotation\InputProcessor as InputAnnotation;
-use Bamiz\UseCaseBundle\Annotation\ResponseProcessor as ResponseAnnotation;
-use Bamiz\UseCaseBundle\Container\Container;
-use Bamiz\UseCaseBundle\Container\ReferenceAcceptingContainerInterface;
-use Bamiz\UseCaseBundle\DependencyInjection\InvalidUseCase;
-use Bamiz\UseCaseBundle\UseCase\RequestResolver;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase as UseCaseAnnotation;
+use Bamiz\UseCaseExecutorBundle\Annotation\InputProcessor as InputAnnotation;
+use Bamiz\UseCaseExecutorBundle\Annotation\ResponseProcessor as ResponseAnnotation;
+use Bamiz\UseCaseExecutor\Container\Container;
+use Bamiz\UseCaseExecutor\Container\ReferenceAcceptingContainerInterface;
+use Bamiz\UseCaseExecutorBundle\DependencyInjection\InvalidUseCase;
+use Bamiz\UseCaseExecutor\UseCase\RequestResolver;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
-use Bamiz\UseCaseBundle\DependencyInjection\UseCaseCompilerPass;
+use Bamiz\UseCaseExecutorBundle\DependencyInjection\UseCaseCompilerPass;
 
-/**
- * @mixin \Bamiz\UseCaseBundle\DependencyInjection\UseCaseCompilerPass
- */
 class UseCaseCompilerPassSpec extends ObjectBehavior
 {
     public function let(

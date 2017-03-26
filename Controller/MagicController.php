@@ -1,6 +1,6 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\Controller;
+namespace Bamiz\UseCaseExecutorBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

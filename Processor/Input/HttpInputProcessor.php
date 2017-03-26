@@ -1,8 +1,9 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\Processor\Input;
+namespace Bamiz\UseCaseExecutorBundle\Processor\Input;
 
-use Bamiz\UseCaseBundle\Processor\Exception\UnsupportedInputException;
+use Bamiz\UseCaseExecutor\Processor\Exception\UnsupportedInputException;
+use Bamiz\UseCaseExecutor\Processor\Input\ArrayInputProcessor;
 use Symfony\Component\HttpFoundation;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

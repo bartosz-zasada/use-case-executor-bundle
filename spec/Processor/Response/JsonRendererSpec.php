@@ -1,17 +1,14 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Processor\Response;
+namespace spec\Bamiz\UseCaseExecutorBundle\Processor\Response;
 
-use Bamiz\UseCaseBundle\Exception\AlternativeCourseException;
-use Bamiz\UseCaseBundle\Processor\Response\JsonRenderer;
+use Bamiz\UseCaseExecutor\Exception\AlternativeCourseException;
+use Bamiz\UseCaseExecutorBundle\Processor\Response\JsonRenderer;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 
-/**
- * @mixin JsonRenderer
- */
 class JsonRendererSpec extends ObjectBehavior
 {
     public function let(SerializerInterface $serializer)
@@ -25,9 +22,9 @@ class JsonRendererSpec extends ObjectBehavior
         );
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Processor\Response\JsonRenderer');
+        $this->shouldHaveType(JsonRenderer::class);
     }
 
     public function it_returns_json_response_with_encoded_response_content(SerializerInterface $serializer)

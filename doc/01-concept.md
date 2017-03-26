@@ -94,7 +94,7 @@ using the “List products in category” Use Case as an example.
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Annotation\UseCase;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase;
 
 /**
  * @UseCase()
@@ -177,7 +177,7 @@ create the following exceptions:
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Exception\AlternativeCourseException;
+use Bamiz\UseCaseExecutorBundle\Exception\AlternativeCourseException;
 
 class CategoryNotFoundException extends AlternativeCourseException
 {
@@ -191,7 +191,7 @@ class CategoryNotFoundException extends AlternativeCourseException
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Exception\AlternativeCourseException;
+use Bamiz\UseCaseExecutorBundle\Exception\AlternativeCourseException;
 
 class RetrievalFailureException extends AlternativeCourseException
 {
@@ -211,7 +211,7 @@ Let's now write a skeleton implementation of the ```execute()``` method that wil
 
 namespace MyBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Annotation\UseCase;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase;
 
 /**
  * @UseCase()

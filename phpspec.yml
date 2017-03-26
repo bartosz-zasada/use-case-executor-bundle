@@ -1,7 +1,7 @@
 suites:
     main_suite:
-        namespace: Bamiz\UseCaseBundle
-        psr4_prefix: Bamiz\UseCaseBundle\
+        namespace: Bamiz\UseCaseExecutorBundle
+        psr4_prefix: Bamiz\UseCaseExecutorBundle\
         spec_prefix: spec
         src_path: "%paths.config%"
         spec_path: "%paths.config%"

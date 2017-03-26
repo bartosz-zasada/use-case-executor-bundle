@@ -1,34 +1,39 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Container;
+namespace spec\Bamiz\UseCaseExecutorBundle\Container;
 
-use Bamiz\UseCaseBundle\Container\ItemNotFoundException;
-use Bamiz\UseCaseBundle\Processor\Input\InputProcessorInterface;
-use Bamiz\UseCaseBundle\UseCase\UseCaseInterface;
+use Bamiz\UseCaseExecutor\Container\ContainerInterface;
+use Bamiz\UseCaseExecutor\Container\ReferenceAcceptingContainerInterface;
+use Bamiz\UseCaseExecutor\Container\ItemNotFoundException;
+use Bamiz\UseCaseExecutor\Processor\Input\InputProcessorInterface;
+use Bamiz\UseCaseExecutor\UseCase\UseCaseInterface;
+use Bamiz\UseCaseExecutorBundle\Container\DelegatingContainer;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface as SymfonyContainerInterface;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
 class DelegatingContainerSpec extends ObjectBehavior
 {
-    public function let(ContainerInterface $symfonyContainer)
+    public function let(SymfonyContainerInterface $symfonyContainer)
     {
         $this->beConstructedWith($symfonyContainer);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Container\DelegatingContainer');
+        $this->shouldHaveType(DelegatingContainer::class);
     }
 
-    function it_is_a_container_that_accept_references()
+    public function it_is_a_container_that_accept_references()
     {
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Container\ContainerInterface');
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Container\ReferenceAcceptingContainerInterface');
+        $this->shouldHaveType(ContainerInterface::class);
+        $this->shouldHaveType(ReferenceAcceptingContainerInterface::class);
     }
 
     public function it_sets_a_service_reference_in_the_container(
-        UseCaseInterface $useCase, InputProcessorInterface $inputProcessor, ContainerInterface $symfonyContainer
+        UseCaseInterface $useCase,
+        InputProcessorInterface $inputProcessor,
+        SymfonyContainerInterface $symfonyContainer
     )
     {
         $symfonyContainer->get('bamiz_use_case.some_service')->willReturn($useCase);
@@ -47,11 +52,11 @@ class DelegatingContainerSpec extends ObjectBehavior
             ->duringGet('no_such_service_here');
     }
 
-    public function it_throws_an_exception_if_service_was_not_found(ContainerInterface $symfonyContainer)
+    public function it_throws_an_exception_if_service_was_not_found(SymfonyContainerInterface $symfonyContainer)
     {
         $this->set('some_service', 'no_such_service_in_container');
         $symfonyContainer->get('no_such_service_in_container')
-            ->willThrow(\Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException::class);
+            ->willThrow(ServiceNotFoundException::class);
 
         $this->shouldThrow(new ItemNotFoundException('Reference "some_service" points to a non-existent service "no_such_service_in_container".'))
             ->duringGet('some_service');

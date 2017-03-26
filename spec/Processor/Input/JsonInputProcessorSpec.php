@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Processor\Input;
+namespace spec\Bamiz\UseCaseExecutorBundle\Processor\Input;
 
-use Bamiz\UseCaseBundle\Processor\Exception\UnsupportedInputException;
-use Bamiz\UseCaseBundle\Processor\Input\InputProcessorInterface;
-use Bamiz\UseCaseBundle\Processor\Input\JsonInputProcessor;
+use Bamiz\UseCaseExecutor\Processor\Exception\UnsupportedInputException;
+use Bamiz\UseCaseExecutor\Processor\Input\InputProcessorInterface;
+use Bamiz\UseCaseExecutorBundle\Processor\Input\JsonInputProcessor;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
@@ -20,9 +20,9 @@ class JsonInputProcessorSpec extends ObjectBehavior
         $this->beConstructedWith($jsonDecoder);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Processor\Input\JsonInputProcessor');
+        $this->shouldHaveType(JsonInputProcessor::class);
     }
 
     public function it_is_an_input_processor()
@@ -41,6 +41,7 @@ class JsonInputProcessorSpec extends ObjectBehavior
         $options = ['what is this' => 'crazy thing'];
         $this->shouldThrow(\InvalidArgumentException::class)->duringInitializeRequest(new MyRequest(), $input, $options);
     }
+
     public function it_populates_the_request_with_json_body_data(HttpRequest $httpRequest, DecoderInterface $jsonDecoder)
     {
         $data = ['stringField' => 'asd', 'numberField' => 123, 'booleanField' => true, 'arrayField' => [3, 2, 1]];
@@ -82,4 +83,14 @@ class JsonRequest
     public $numberField;
     public $booleanField;
     public $arrayField;
+}
+
+class MyRequest
+{
+    public $stringField;
+    public $numberField;
+    public $booleanField;
+    public $arrayField;
+    public $omittedField;
+    public $omittedFieldWithDefaultValue = 'asdf';
 }

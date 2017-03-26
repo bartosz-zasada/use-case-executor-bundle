@@ -1,18 +1,14 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Response\Processor;
+namespace spec\Bamiz\UseCaseExecutorBundle\Processor\Response;
 
+use Bamiz\UseCaseExecutorBundle\Processor\Response\TwigRenderer;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormView;
 
-/**
- * Class TwigRendererSpec
- * @mixin \Bamiz\UseCaseBundle\Processor\Response\TwigRenderer
- */
 class TwigRendererSpec extends ObjectBehavior
 {
     public function let(EngineInterface $templatingEngine, FormFactoryInterface $formFactory)
@@ -20,9 +16,9 @@ class TwigRendererSpec extends ObjectBehavior
         $this->beConstructedWith($templatingEngine, $formFactory);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
-        $this->shouldHaveType('Bamiz\UseCaseBundle\Response\Processor\TwigRenderer');
+        $this->shouldHaveType(TwigRenderer::class);
     }
 
     public function it_throws_an_exception_when_no_template_is_specified()
@@ -31,8 +27,12 @@ class TwigRendererSpec extends ObjectBehavior
     }
 
     public function it_creates_views_of_specified_forms(
-        EngineInterface $templatingEngine, FormFactoryInterface $formFactory, Form $contactForm, Form $searchForm,
-        FormView $contactFormView, FormView $searchFormView
+        EngineInterface $templatingEngine,
+        FormFactoryInterface $formFactory,
+        Form $contactForm,
+        Form $searchForm,
+        FormView $contactFormView,
+        FormView $searchFormView
     )
     {
         $formFactory->create('contact_form')->willReturn($contactForm);
@@ -49,7 +49,6 @@ class TwigRendererSpec extends ObjectBehavior
             ]
         ];
 
-        $this->setFormFactory($formFactory);
         $this->processResponse(new \stdClass(), $options);
 
         $templatingEngine->renderResponse(':default:index.html.twig', [
@@ -58,7 +57,10 @@ class TwigRendererSpec extends ObjectBehavior
     }
 
     public function it_sets_data_of_displayed_form(
-        EngineInterface $templatingEngine, FormFactoryInterface $formFactory, Form $form, FormView $formView
+        EngineInterface $templatingEngine,
+        FormFactoryInterface $formFactory,
+        Form $form,
+        FormView $formView
     )
     {
         $response = new \stdClass();
@@ -82,7 +84,9 @@ class TwigRendererSpec extends ObjectBehavior
         $this->processResponse($response, $options);
 
         $templatingEngine
-            ->renderResponse(':default:index.html.twig', ['formView' => $formView->getWrappedObject()])
-            ->shouldHaveBeenCalled();
+            ->renderResponse(':default:index.html.twig', [
+                'formData' => $response->formData,
+                'formView' => $formView->getWrappedObject()
+            ])->shouldHaveBeenCalled();
     }
 }

@@ -1,16 +1,17 @@
-# Use Case Bundle
+# Use Case Executor Bundle
 
-Use Case Bundle is a Symfony bundle that supports Use Case Driven Development with Symfony framework. It encourages 
-designing your class in a fashion reflects the intention of your application. The tools provided by Use Case Bundle 
-relieve you of the repetitive task of extracting the information required to perform the right behavior from the 
-application input, which helps you output the results in the desired way. 
+Use Case Executor Bundle is a Symfony bundle providing an example implementation of Screaming Architecture, with help of
+components that come with Symfony framework. It encourages designing your class in a fashion that reflects the intention 
+of your application. The tools provided by Use Case Executor Bundle relieve you of the repetitive task of extracting the 
+information required to perform the right behavior from the application input, which helps you output the results in the 
+desired way. 
 
 Installation
 ============
 
 Just run 
 
-    $ composer require bamiz/use-case-bundle
+    $ composer require bamiz/use-case-executor-bundle
 
 Configuration
 =============
@@ -29,7 +30,7 @@ class AppKernel extends Kernel
         $bundles = array(
             // ...
 
-            new Bamiz\UseCase\BamizUseCaseBundle(),
+            new Bamiz\UseCaseExecutorBundle\BamizUseCaseExecutorBundle(),
         );
 
         // ...
@@ -70,7 +71,7 @@ Make sure that the Use Case class contains an ```execute()``` method with one ty
 
 namespace AppBundle\UseCase;
 
-use Bamiz\UseCaseBundle\Annotation\UseCase;
+use Bamiz\UseCaseExecutorBundle\Annotation\UseCase;
 
 /**
  * @UseCase("My Use Case", input="http", response="json")

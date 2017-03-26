@@ -1,9 +1,8 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Annotation;
+namespace spec\Bamiz\UseCaseExecutorBundle\Annotation;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class InputProcessorSpec extends ObjectBehavior
 {

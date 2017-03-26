@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Bamiz\UseCaseBundle\Controller;
+namespace spec\Bamiz\UseCaseExecutorBundle\Controller;
 
-use Bamiz\UseCaseBundle\Execution\UseCaseExecutor;
+use Bamiz\UseCaseExecutor\UseCaseExecutor;
+use Bamiz\UseCaseExecutorBundle\Controller\MagicController;
 use PhpSpec\ObjectBehavior;
-use Bamiz\UseCaseBundle\Controller\MagicController;
 use Prophecy\Argument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;

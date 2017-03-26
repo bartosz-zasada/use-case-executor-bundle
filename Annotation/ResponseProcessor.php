@@ -1,6 +1,6 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\Annotation;
+namespace Bamiz\UseCaseExecutorBundle\Annotation;
 
 /**
  * @Annotation

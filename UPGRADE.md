@@ -65,3 +65,10 @@ It is possible to use multiple annotations per Use Case, thus using many Process
 of the Use Case class are ignored.
 * Base Controller that executes Use Cases. Supports magic methods and passing the name and the configuration of the
 Use Case as route attributes. See chapter [Toolkit](doc/04-toolkit.md) for details.
+
+## From 0.4 to 0.5
+
+Use Case Executor has been extracted from Use Case Bundle, becoming a component that is 100% independent from any PHP
+framework. This bundle now installs Use Case Executor as its dependency. As a result, the namespace prefix for all 
+classes has been changed from `Bamiz\UseCaseBundle` to `Bamiz\UseCaseExecutorBundle`. All service names have remained
+unchanged.

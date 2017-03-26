@@ -1,7 +1,8 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\Processor\Input;
+namespace Bamiz\UseCaseExecutorBundle\Processor\Input;
 
+use Bamiz\UseCaseExecutor\Processor\Input\InputProcessorInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation;
 use Symfony\Component\OptionsResolver\OptionsResolver;

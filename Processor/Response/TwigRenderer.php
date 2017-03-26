@@ -1,8 +1,9 @@
 <?php
 
-namespace Bamiz\UseCaseBundle\Processor\Response;
+namespace Bamiz\UseCaseExecutorBundle\Processor\Response;
 
-use Bamiz\UseCaseBundle\Exception\AlternativeCourseException;
+use Bamiz\UseCaseExecutor\Exception\AlternativeCourseException;
+use Bamiz\UseCaseExecutor\Processor\Response\ResponseProcessorInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation;
