@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $root = $treeBuilder->root('bamiz_use_case');
+        $root = $treeBuilder->root('bamiz_use_case_executor');
 
         $root
             ->children()
