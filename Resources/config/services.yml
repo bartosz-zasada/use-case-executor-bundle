@@ -41,9 +41,11 @@ services:
 
     bamiz_use_case.container.input_processor:
         class: "%bamiz_use_case.container.input_processor.class%"
+        arguments: ["@service_container"]
 
     bamiz_use_case.container.response_processor:
         class: "%bamiz_use_case.container.response_processor.class%"
+        arguments: ["@service_container"]
 
     bamiz_use_case.request_resolver:
         class: "%bamiz_use_case.request_resolver.class%"
